@@ -3,6 +3,7 @@ require_once("db_connection.php");
 require_once("vars.php");
 
 function populate_table_edit_delete($res) {
+  // Used in index.php to list the products into the table
   while ($row = pg_fetch_row($res))
       {
         print "<tr><th>$row[0]</th><th>$row[1]</th><th>$row[2]</th><th>$row[3]</th><th>$row[4]</th>
@@ -24,6 +25,7 @@ function populate_table_edit_delete($res) {
       }
 }
 
+// Used in edit_product.php to get the correct product information about the editable product
 function list_editable_product($res) {
   $row = pg_fetch_row($res);
   print "<form method=\"post\">
@@ -42,12 +44,13 @@ function list_editable_product($res) {
 </form>";
 }
 
-
+// Used by index.php to get the products sorted by ?sort=by
 if(isset($_GET['sort'])) {
   $by = $_GET['sort'];
   $result = get_sorted(by: $by, conn: $conn_string);
 }
 
+// Used in add_product.php to save insert the new product with correct data to the database
 if(isset($_POST['button6'])) {
   $name = $_POST['name'];
   $desc = $_POST['desc'];
@@ -58,15 +61,21 @@ if(isset($_POST['button6'])) {
   }
   add(conn: $conn_string, name: $name, description: $desc, price: $price, quantity: $quant);
 }
+
+
 if(isset($_POST['button7'])) {
   $id = $_POST['id'];
   remove(conn: $conn_string, id: $id);
   $result = get_all($conn_string);
 }
+
+// Used in index.php to get only the products that match the search string in any of their fields
 if(isset($_GET['search'])) {
   $filter = $_GET['search'];
   $result = get_filtered(conn: $conn_string, filter: $filter);
 }
+
+// Used in edit_product.php to save the edited values to the database
 if(isset($_POST['edit'])) {
   $name = $_POST['name'];
   $desc = $_POST['desc'];
@@ -79,6 +88,7 @@ if(isset($_POST['edit'])) {
   update(conn: $conn_string, id: $id, name: $name, description: $desc, quantity: $quant, price: $price);
 }
 
+// Script used by the Edit buttons on index.php to link to the correct edit product page
 ?>
 <script>
   function editProductPage(id) {

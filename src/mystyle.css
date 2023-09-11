@@ -1,0 +1,52 @@
+body {
+  background-color: lightgray;
+}
+
+.center {
+  display: grid;
+  place-items:center;
+}
+
+.search {
+  margin:10px;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.float {
+  float: left;
+}
+
+.nav li button {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: rgb(25,25,25);
+  color: white;
+}
+
+.inactive {
+  color: black;
+  background-color: rgb(200, 200, 200);
+}
+
+/* Change the link color to #111 (black) on hover */
+li button:hover {
+  background-color: white;
+  color: black;
+}
+
+.box {
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+}

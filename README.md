@@ -14,6 +14,6 @@ docker-compose up
 
 Running the above commands will start the docker container with the required images with the postgres database and php-apache.
 
-Once the commands have finished processing their tasks, open a web-browser and navigate to the address [localhost:8080](localhost:8080).
+Once the commands have finished processing their tasks, open a web-browser and navigate to the address [localhost:8080](http://localhost:8080).
 
 **Include a brief README explaining your approach, challenges faced, and any additional features you implemented, including details about the filtering and sorting functionalities you added.**

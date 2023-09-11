@@ -15,7 +15,7 @@
     <h1>Edit product</h1>
 
 
-    <div class="box">
+    <div class="box left">
       <?php
         $id = $_GET['id'];
         list_editable_product(get_one(conn: $conn_string, id: $id));

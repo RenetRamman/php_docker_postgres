@@ -28,30 +28,30 @@
       <tr>
         <th>
           <form method="get">
-            <input type="submit" name="button1"
+            <input type="submit" name="sort"
                   value="Id"/>
           </form>
         </th>
         <th>
           <form method="get">
-            <input type="submit" name="button2"
+            <input type="submit" name="sort"
                   value="Name"/>
           </form>
         </th>
         <th>
         <form method="get">
-            <input type="submit" name="button3"
+            <input type="submit" name="sort"
                   value="Description"/>
           </form>
         </th>
         <th>
           <form method="get">
-            <input type="submit" name="button4"
+            <input type="submit" name="sort"
                   value="Quantity"/>
           </form></th>
         <th>
         <form method="get">
-            <input type="submit" name="button5"
+            <input type="submit" name="sort"
                   value="Price"/>
           </form>
         </th>

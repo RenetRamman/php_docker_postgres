@@ -4,7 +4,12 @@ body {
 
 .center {
   display: grid;
-  place-items:center;
+  place-items: center;
+  text-align: center;
+}
+
+.left {
+  text-align: left;
 }
 
 .search {
@@ -49,4 +54,9 @@ li button:hover {
 .box {
   background-color: rgb(200, 200, 200);
   padding: 10px;
+  border-radius: 20px;
+}
+
+.m10 {
+  margin: 10px;
 }

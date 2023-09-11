@@ -33,9 +33,9 @@ function get_filtered(string $filter, $conn) {
   return $res;
 }
 
-function get_sorted(string $sortBy, $conn) {
+function get_sorted(string $by, $conn) {
   $connection = pg_connect($conn);
-  $res = pg_query(pg_connect($conn), "select * from products order by $sortBy;");
+  $res = pg_query(pg_connect($conn), "select * from products order by $by;");
   pg_close($connection);
   return $res;
 }

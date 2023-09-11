@@ -1,12 +1,6 @@
 <?php
-$host = "host=db";
-$port = "port=5432";
-$dbname = "dbname=postgres";
-$user = "user=postgres";
-$password = "password=mysecretpassword";
-$conn_string = "$host $port $dbname $user $password";
-
 require_once("db_connection.php");
+require_once("vars.php");
 
 function populate_table_edit_delete($res) {
   while ($row = pg_fetch_row($res))
@@ -42,27 +36,18 @@ function list_editable_product($res) {
   <input type=\"number\" id=\"quant\" name=\"quant\" value=\"$row[3]\"><br>
   <label for=\"price\">Price:</label><br>
   <input required=\"true\" step=\"0.01\" type=\"number\" id=\"price\" name=\"price\" value=\"$row[4]\"><br>
-
-  <input type=\"submit\" name=\"edit\" value=\"Save changes\"/>
+  <div class=\"center\">
+    <input class=\"m10\" type=\"submit\" name=\"edit\" value=\"Save changes\"/>
+  </div>
 </form>";
 }
 
 
-if(isset($_GET['button1'])) {
-  $result = get_sorted("id", $conn_string);
+if(isset($_GET['sort'])) {
+  $by = $_GET['sort'];
+  $result = get_sorted(by: $by, conn: $conn_string);
 }
-if(isset($_GET['button2'])) {
-  $result = get_sorted("name", $conn_string);
-}
-if(isset($_GET['button3'])) {
-  $result = get_sorted("description", $conn_string);
-}
-if(isset($_GET['button4'])) {
-  $result = get_sorted("quantity", $conn_string);
-}
-if(isset($_GET['button5'])) {
-  $result = get_sorted("price", $conn_string);
-}
+
 if(isset($_POST['button6'])) {
   $name = $_POST['name'];
   $desc = $_POST['desc'];
